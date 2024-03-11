@@ -56,14 +56,10 @@ The example is divided in two main components:
   <TabItem value="🦀 Rust">
 
 ```bash
-┌── sandbox-ts # sandbox testing
-│    ├── src
-│    │    └── main.ava.ts
-│    ├── ava.config.cjs
-│    └── package.json
+┌── tests # sandbox testing
+│    └── tests.rs
 ├── src # contract's code
 │    └── lib.rs
-├── build.sh # build script
 ├── Cargo.toml # package manager
 ├── README.md
 └── rust-toolchain.toml
@@ -153,7 +149,7 @@ yarn test
   
   ```bash
   cd contract-rs
-  ./test.sh
+  cargo test
   ```
 
   </TabItem>
@@ -192,8 +188,8 @@ near create-account <accountId> --useFaucet
 
 # Deploy the contract
 cd contract-rs
-./build.sh
-near deploy <accountId> ./target/wasm32-unknown-unknown/release/counter.wasm
+cargo near build
+cargo near deploy <accountId>
 ```
 
   </TabItem>
